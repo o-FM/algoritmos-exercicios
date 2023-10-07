@@ -1,4 +1,4 @@
-package algoritmos;
+package algoritmos.theAlgorithms.estruturasDeDados;
 
 import java.util.Stack;
 

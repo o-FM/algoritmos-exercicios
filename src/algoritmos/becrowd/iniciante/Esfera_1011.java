@@ -2,7 +2,7 @@ package algoritmos.becrowd.iniciante;
 
 import java.util.Scanner;
 
-public class Esfera {
+public class Esfera_1011 {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		double raio = scan.nextDouble();

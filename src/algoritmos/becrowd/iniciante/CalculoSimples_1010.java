@@ -2,7 +2,7 @@ package algoritmos.becrowd.iniciante;
 
 import java.util.Scanner;
 
-public class CalculoSimples {
+public class CalculoSimples_1010 {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int peca1 = scan.nextInt();

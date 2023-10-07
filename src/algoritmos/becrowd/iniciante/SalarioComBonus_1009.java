@@ -2,7 +2,7 @@ package algoritmos.becrowd.iniciante;
 
 import java.util.Scanner;
 
-public class SalarioComBonus {
+public class SalarioComBonus_1009 {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		String nameVendedor = scan.nextLine();

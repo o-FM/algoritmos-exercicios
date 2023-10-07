@@ -2,7 +2,7 @@ package algoritmos.becrowd.iniciante;
 
 import java.util.Scanner;
 
-public class Media1 {
+public class Media1_1005 {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		double A = scan.nextDouble();

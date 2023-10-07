@@ -2,7 +2,7 @@ package algoritmos.becrowd.iniciante;
 
 import java.util.Scanner;
 
-public class Salario {
+public class Salario_1008 {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int numFuncionario = scan.nextInt();
