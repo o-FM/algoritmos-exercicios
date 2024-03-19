@@ -1,11 +1,8 @@
-import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Pattern;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
-
-import static java.lang.Math.abs;
+import java.util.stream.Collectors;
 
 public class Teste {
 
@@ -69,25 +66,56 @@ public class Teste {
     }
 
     private static Boolean isCNPJValid(String cnpj) {
-        cnpj = cnpj.replaceAll("[\\.\\/-]", "");
+        return cnpj.chars()
+            .filter(Character::isDigit)
+            .count() == 15;
+    }
 
-        if (cnpj.length() != 14) {
-            return false;
+    public static String concatenaOtpDisp043(String otp043) {
+        if (otp043.length() >= 5) {
+
+            String parte1 = otp043.substring(0, 5);
+            String parte2 = otp043.substring(5);
+
+            otp043 = parte1.concat("00").concat(parte2);
+
         }
 
-        Integer digitoVerificador1 = calculaDigitoVerificadorCnpj(cnpj.substring(0, 12), pesoCNPJ);
-        Integer digitoVerificador2 = calculaDigitoVerificadorCnpj(cnpj.substring(0, 12) + digitoVerificador1, pesoCNPJ);
+        return otp043;
+    }
 
-        return cnpj.equals(cnpj.substring(0,12) + digitoVerificador1.toString() + digitoVerificador2.toString());
+    public static String concatenaZerosNoCampoValores(String valor) {
+        String zeros = "0".repeat(16 - valor.length());
+
+        return String.format("%s%s", zeros, valor);
+    }
+    public static List<String> concatenaZerosNoCampoValores2(List<String> valores) {
+        return valores.stream()
+            .map(valor -> {
+                Integer tamanhoString = valor.length();
+                Integer quantidadeZeros = 16 - tamanhoString;
+
+                String zeros = "0".repeat(quantidadeZeros);
+
+                return zeros.concat(valor);
+            })
+            .collect(Collectors.toList());
     }
 
     public static void main(String[] args) {
         String otp = "biel1108";
         String cpf = "09684052820";
         String cnpj = "36.913.444/0001-65";
+        String OTP = "04301411406";
+        String valor = "200";
+        List<String> valores = Arrays.asList("2000", "30", "400", "5", "0000000000000100");
 
-        System.out.println(isCNPJValid(cnpj));
-        System.out.println(calculaDigitoVerificadorCnpj("278657570001", pesoCNPJ));
+        System.out.println(concatenaZerosNoCampoValores2(valores));
+
+//        System.out.println(concatenaOtpDisp043(OTP));
+
+//        System.out.println(isCNPJValid(cnpj));
+//        System.out.println(calculaDigitoVerificadorCnpj("278657570001", pesoCNPJ));
 
 //        if (!isValidPattenrOtp(otp)) {
 //            throw new IllegalArgumentException("OTP inválida.");
