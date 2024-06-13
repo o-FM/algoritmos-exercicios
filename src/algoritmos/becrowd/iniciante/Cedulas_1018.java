@@ -10,18 +10,18 @@ public class Cedulas_1018 {
         int valor = scan.nextInt();
         scan.close();
 
-        int cem = 0;
-        int cinquenta = 0;
-        int vinte = 0;
-        int dez = 0;
-        int cinco = 0;
-        int dois = 0;
-        int um = 0;
+        int[] cedulas = {100, 50, 20, 10, 5, 2, 1};
 
-//        for (int i = 0; i >= 0; i--) {
-//            if ()
-//        }
+        System.out.println(valor);
+        for (int cedula : cedulas) {
+            int qntdCedulas = valor / cedula;
 
-        System.out.println(cem);
+            if (qntdCedulas > 0) {
+                System.out.println(qntdCedulas + " nota(s) de R$ " + cedula + ",00");
+                valor %= cedula;
+            } else {
+                System.out.println("0 nota(s) de R$ " + cedula + ",00");
+            }
+        }
     }
 }
